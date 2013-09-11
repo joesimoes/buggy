@@ -9,6 +9,7 @@ window.App =
   Views: {}
   Collections: {}
   Models: {}
+  Mixins: {}
   Vent: _.clone(Backbone.Events)
   
   initialize: ->

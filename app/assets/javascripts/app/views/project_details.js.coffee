@@ -21,3 +21,13 @@ class App.Views.ProjectDetails extends Backbone.View
   render: ->
   	@$el.html(@template(@model.toJSON()))
   	@
+
+  renderDetails: ->
+    @$el.html(@template(@model.toJSON()))
+    v = new App.Views.Issues({ collection: @model.issues })
+    @childViews.push(v)
+    @$('#issues').html(v.render().el)
+
+    v1 = new App.Views.NewIssue({ model: new App.Models.Issue({ project_id: @model.id }) })
+    @childViews.push(v1)
+    @$('#new_issue').html(v1.render().el)
